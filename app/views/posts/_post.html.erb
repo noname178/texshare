@@ -1,0 +1,16 @@
+  <li>
+    <%= link_to search_path(post) do %>
+    <div class="post">
+      <div class="post-image-container">
+        <%= image_tag(post.image) %>
+      </div>
+      <div class="post-info-container">
+        <div class="post-title"><%= post.title %></div>
+        <div class="post-detail">
+        <div><i class="icon-pencil"></i><%= post.lesson %></div>
+        <div><i class="icon-user"></i><%= post.teacher %></div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </li>

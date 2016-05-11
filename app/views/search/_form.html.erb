@@ -1,0 +1,27 @@
+<%= form_tag search_index_path, class: 'search-form', method: 'get' do %>
+  <div class="search-group">
+    <%= label_tag :title, '書籍名' %>
+    <%= text_field_tag :title, @title, placeholder: '部分一致' %>
+  </div>
+  <div class="search-group">
+    <%= label_tag :lesson, '講義名' %>
+    <%= text_field_tag :lesson, @lesson, placeholder: '部分一致' %>
+  </div>
+  <div class="search-group">
+    <%= label_tag :teacher, '教員' %>
+    <%= text_field_tag :teacher, @teacher, placeholder: '部分一致' %>
+  </div>
+  <div class="search-group">
+    <%= label_tag :under, '学部' %>
+    <span class="dummy-select needsclick" id="dummy-under" data-select="#under">指定しない</span>
+    <%= select_tag :under, options_for_select(Post.under.options), prompt: '指定しない', class: 'form-select', data: {parent: '#dummy-under'} %>
+  </div>
+  <div class="search-group">
+    <%= label_tag :status, '状態' %>
+    <span class="dummy-select needsclick" id="dummy-status" data-select="#status">指定しない</span>
+    <%= select_tag :status, options_for_select(Post.status.options), prompt: '指定しない', class: 'form-select', data: {parent: '#dummy-status'} %>
+  </div>
+  <div class="search-submit">
+    <%= submit_tag '絞り込む' %>
+  </div>
+<% end %>

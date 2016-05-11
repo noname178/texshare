@@ -1,0 +1,87 @@
+.body{
+  position: absolute;
+  width: 100%; height: 100%;
+  overflow: hidden;
+}
+
+.header_container{
+  position: relative;
+  width: 100%; height: 12%;
+  background-color: #62badf;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+  text-align: center;
+  z-index: 100;
+
+  .title{
+    position: absolute;
+    left: 0px; right: 0px;
+    bottom: 0px;
+    margin-bottom: 2%;
+    font-size: 120%;
+    font-weight: 400;
+    letter-spacing: 5px;
+    color: white;
+  }
+
+  .search-toggle{
+    position: absolute;
+    bottom: 0px; right: 0px;
+    margin: 1%;
+    width: 15%;
+
+    img{
+      position: absolute;
+      bottom: 0px;
+      width: 40%;
+    }
+  }
+}
+
+.content-wrapper{
+  position: relative;
+  width: 100%; height: 80%;
+  z-index: 50;
+}
+
+.menu-container{
+  position: relative;
+  width: 100%; height: 8%;
+  background-color: rgb(252,252,252);
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+  z-index: 100;
+
+  ul{
+    position: absolute;
+    width: 100%; height: 100%;
+
+    li{
+      width: 25%; height: 100%;
+      float: left;
+
+      .menu-image-container{
+        position: relative;
+        width: 100%; height: 70%;
+
+        img{
+          position: absolute;
+          top: 0px; bottom: 0px;
+          left: 0px; right: 0px;
+          margin: auto;
+          height: 80%;
+        }
+      }
+
+      .menu-label{
+        position: relative;
+        width: 100%; height: 20%;
+        text-align: center;
+        font-weight: 500;
+        font-size: 60%;
+      }
+
+      .current{
+        color: #62badf;
+      }
+    }
+  }
+}

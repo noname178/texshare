@@ -1,0 +1,40 @@
+  <div class="post-show-container">
+    <div class="post-container">
+      <div class="post-image-container">
+        <%= image_tag(@post.image) %>
+      </div>
+      <div class="post-detail-container">
+        <div class="post-title-container">
+          <%= @post.title %>
+        </div>
+        <div class="post-infos-container">
+          <div class="post-info-label">詳細</div>
+          <table cellspacing="0">
+            <tr>
+              <td class="label">講義名</td>
+              <td class="description"><%= @post.lesson %>
+            </tr>
+            <tr>
+              <td class="label">教授</td>
+              <td class="description"><%= @post.teacher %>
+            </tr>
+            <tr>
+              <td class="label">学部</td>
+              <td class="description"><%= @post.under.text %>
+            </tr>
+            <tr>
+              <td class="label">講義名</td>
+              <td class="description"><%= @post.status.text %>
+            </tr>
+            <tr>
+              <td class="label">講義名</td>
+              <td class="description"><%= @post.lesson %>
+            </tr>
+          </table>
+        </div>
+        <div class="buttons-container">
+          <%= render 'buttons' %>
+        </div>
+      </div>
+    </div>
+  </div>

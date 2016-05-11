@@ -1,0 +1,40 @@
+<%= form_for @post, url: share_index_path, class: 'post-form' do |f| %>
+  <div class="form-image">
+    <%= image_tag('icons/upload.png', class: 'file-thumb needsclick') %>
+    <%= f.file_field :image, style: 'display:none', id: 'form-file' %>
+    <div class="height-control"></div>
+  </div>
+  <div class="form-group">
+    <%= f.label :title %>
+    <div class="text-area">
+      <%= f.text_field :title, class: 'form-control', placeholder: '書籍名を入力してください。' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label '講義' %>
+    <div class="text-area">
+      <%= f.text_field :lesson, class: 'form-control', placeholder: '講義名を入力してください。' %>
+      <hr>
+      <%= f.text_field :teacher, class: 'form-control', placeholder: '教員名を入力してください' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label '詳細' %>
+    <div class="text-area">
+      <div class="small-group">
+        <%= f.label :under %>
+        <span class="dummy-select needsclick" id="dummy-under" data-select="#post_under">学部を選択してください</span>
+        <%= f.select :under, Post.under.options, {}, class: 'form-select', data: {parent: '#dummy-under'} %>
+      </div>
+      <hr>
+      <div class="small-group">
+        <%= f.label :status %>
+        <span class="dummy-select needsclick" id="dummy-status" data-select="#post_status">状態を選択してください</span>
+        <%= f.select :status, Post.status.options, {}, class: 'form-select', data: {parent: '#dummy-status'} %>
+      </div>
+    </div>
+  </div>
+  <div class="form-submit">
+    <%= f.submit '投稿', class: 'btn btn-submit' %>
+  </div>
+<% end %>
