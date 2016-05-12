@@ -6,5 +6,9 @@ class Post < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
+  belongs_to :owner, class_name: 'User', foreign_key: 'owner_id'
+  belongs_to :receiver, class_name: 'User', foreign_key: 'receiver_id'
+  has_many :messages
+
   validates_presence_of :title, :status , :image
 end

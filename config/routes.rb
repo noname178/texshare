@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
 
-  root 'login#index'
-  resources :top, only: :index
+  devise_for :users
+  root 'top#index'
+  resources :top, only: [:index, :create] do
+    collection  do
+      post '/login' => :exist_user
+    end
+  end
   resources :share, only: [:index, :create]
-  resources :search, only: [:index, :show, :update] do
+  resources :search, except: [:create, :edit, :new] do
     collection do
-      get ':id/message' => :message
+      get ':id/messages' => :message
+      post ':id/messages' => :create_message
     end
   end
   resources :mypage, only: :index

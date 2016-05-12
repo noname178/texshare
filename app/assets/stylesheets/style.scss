@@ -35,6 +35,18 @@
       width: 40%;
     }
   }
+
+  .back_button{
+    position: absolute;
+    bottom: 0px; left: 0px;
+    margin: 1%;
+    width: 15%;
+    text-align: left;
+    text-indent: 2%;
+    font-weight: bold;
+    z-index: 100;
+    color: white;
+  }
 }
 
 .content-wrapper{

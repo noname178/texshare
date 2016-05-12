@@ -1,0 +1,6 @@
+<script>
+  $(window).on('load', function(){
+    localStorage.setItem("user", "<%= @user.student_num %>");
+    window.location.href = "/search";
+  });
+</script>

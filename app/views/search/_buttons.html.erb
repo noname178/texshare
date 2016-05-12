@@ -1,3 +1,18 @@
-<%= form_for @post, url: search_path do |f| %>
-  <%= f.submit "ほしい" %>
+<% unless @post.receiver_id %>
+  <% unless @post.owner == current_user %>
+    <%= form_for @post, url: search_path do |f| %>
+      <%= f.hidden_field :receiver_id, value: current_user.id %>
+      <%= f.submit "ほしい" %>
+    <% end %>
+  <% else %>
+    <%= link_to search_path(@post), method: :delete do %>
+      <button class="post-delete">削除</button>
+    <% end %>
+  <% end %>
+<% else %>
+  <% if @post.owner == current_user || @post.receiver == current_user %>
+    <%= link_to "#{params[:id]}/messages" do %>
+    <button class="post-primary">連絡する</button>
+    <% end %>
+  <% end %>
 <% end %>

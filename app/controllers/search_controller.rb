@@ -16,14 +16,33 @@ class SearchController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
+    redirect_to :back
+  end
+
+  def destroy
+    @post =  Post.find(params[:id])
+    @post.destroy
+    redirect_to search_index_path
   end
 
   def message
+    post = Post.find(params[:id])
+    @messages = post.messages
+    @message = Message.new
+  end
+
+  def create_message
+    Message.create(message_params)
+    redirect_to :back
   end
 
   private
 
   def post_params
     params.require(:post).permit(:receiver_id)
+  end
+
+  def message_params
+    params.require(:message).permit(:user_id, :post_id ,:content)
   end
 end

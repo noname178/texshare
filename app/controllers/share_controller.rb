@@ -15,6 +15,6 @@ class ShareController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :title, :lesson, :teacher, :under, :status)
+    params.require(:post).permit(:image, :title, :lesson, :teacher, :under, :status, :owner_id)
   end
 end

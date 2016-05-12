@@ -1,19 +1,24 @@
 <div class="messages-container">
   <div class="messages-list-container">
     <ul>
-      <% 10.times do |num| %>
-        <li>
-          <div class="user-message">あいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこ</div>
-        </li>
-        <li>
-        <div class="counter-message">さしすせそたちつてとあいうえおかきくけこあいうえおかくきけこ</div>
-        </li>
+      <% @messages.each do |message| %>
+          <li>
+            <div class="<%= message.user ? 'user-message' : 'counter-message' %>"><%= message.content %></div>
+          </li>
       <% end %>
       <input type="text" autofocus="true" style="opacity: 0; z-index: -100;">
     </ul>
   </div>
   <div class="messages-form-container">
-    <div class="messages-input-container"></div>
-    <div class="messages-submit-container"></div>
+    <%= form_for @message, url: "#" do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :post_id, value: params[:id] %>
+      <div class="messages-input-container">
+        <%= f.text_field :content, placeholder: 'メッセージを入力してください' %>
+      </div>
+      <div class="messages-submit-container">
+        <%= f.submit "送信" %>
+      </div>
+    <% end %>
   </div>
 </div>
